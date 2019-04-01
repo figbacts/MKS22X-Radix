@@ -1,3 +1,4 @@
+@SuppressWarnings("unchecked")
 class MyLinkedList<E>{
   class Node{
  private E data;
@@ -19,10 +20,10 @@ class MyLinkedList<E>{
  public void setPrev(Node other){
    prev = other;
  }
- public Integer getData(){
+ public E getData(){
    return data;
  }
- public Integer setData(Integer i){
+ public E setData(E i){
    data = i;
    return data;
  }
@@ -80,11 +81,22 @@ public E remove(){
     size -= 1;
     return ans;
 }
+public E removeFront(){
+  Node current = start.next();
+  start.setNext(current.next());
+  current.next().setPrev(start);
+  return current.getData();
+}
+public void clear(){
+Node blank = new Node(null,null,null);
+start.setNext(blank);
+end.setPrev(blank);
+}
 public void extend(MyLinkedList other){
      //in O(1) runtime, move the elements from other onto the end of this
      //The size of other is reduced to 0
      //The size of this is now the combined sizes of both original lists
-  end.prev().setNext(other.start);
+  end.prev().setNext(other.start.next());
   other.start.setPrev(end.prev());
   end.setPrev(other.end.prev());
   size = size + other.size();
