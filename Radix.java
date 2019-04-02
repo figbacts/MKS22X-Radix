@@ -7,6 +7,10 @@ public class Radix{
      Buckets[0] = zero;
      MyLinkedList one = new MyLinkedList();
      Buckets[1] = one;
+     MyLinkedList two = new MyLinkedList();
+     Buckets[2] = two;
+     MyLinkedList three = new MyLinkedList();
+     Buckets[3] = three;     
       }
    public static void main(String[] args) {
      int[] data = {0,1,2,3,4,5,6,7,8,9};
