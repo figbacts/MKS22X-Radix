@@ -62,7 +62,7 @@ public class Radix{
             Buckets[k].clear();
           }
 
-       while (counter != 10){
+       while (counter != data.length){
          holder = ary.removeFront();
          //System.out.println(power);
          place = (int)holder / power % 10;
@@ -166,11 +166,18 @@ public class Radix{
     //System.out.println(ary);
   //}
 }
+int p =0;
+while(p != data.length){
+  data[p] = (int)ary.removeFront();
+  p ++;
+}
+//System.out.println(ary.removeFront());
 //System.out.println(ary);
 }
    public static void main(String[] args) {
-     int[] data = {12,21,33,54,65,76,87,89,-98,10};
+     int[] data = {5, 3, 2, 2, 4, 6, 5, 5, 2, 0};
      radixsort(data);
+  //   System.out.println(Arrays.toString(data));
 
    }
 }
